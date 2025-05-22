@@ -50,7 +50,7 @@ You can also configure the ```--num_bases``` parameter to set the number of weig
 ```
 python schema_gnn_node.py --dataset rel-f1 --task driver-position --num_bases 6
 ```
-You can configure the --weight1, --weight2, and --weight3 parameters to adjust the linear coefficients for the reconstruction loss ($\mathcal{L}{rec}$), task-specific loss ($\mathcal{L}{tsk}$), and regularization loss ($\mathcal{L}{reg}$), respectively. For example, to train and test SchemaGNN on the driver position task from the rel-f1 dataset using 6 weight matrices in the Parameter Basis, with the overall loss defined as $1.0 \cdot \mathcal{L}{rec} + 1.0 \cdot \mathcal{L}{tsk} + 0.3 \cdot \mathcal{L}{reg}$, execute the following command:
+You can configure the --weight1, --weight2, and --weight3 parameters to adjust the linear coefficients for the reconstruction loss ($\mathcal{L}_{rec}$), task-specific loss ($\mathcal{L}_{tsk}$), and regularization loss ($\mathcal{L}_{reg}$), respectively. For example, to train and test SchemaGNN on the driver position task from the rel-f1 dataset using 6 weight matrices in the Parameter Basis, with the overall loss defined as $1.0 \cdot \mathcal{L}_{rec} + 1.0 \cdot \mathcal{L}_{tsk} + 0.3 \cdot \mathcal{L}_{reg}$, execute the following command:
 ```
 python schema_gnn_node.py --dataset rel-f1 --task driver-position --num_bases 6 --weight1 1.0 --weight2 1.0 --weight3 0.3
 ```
