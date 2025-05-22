@@ -19,5 +19,5 @@
 # Contributing
 
 
-# Cite Schema
+# Cite SchemaGNN
 
