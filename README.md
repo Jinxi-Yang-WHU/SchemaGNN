@@ -36,15 +36,7 @@ pip install relbench[full]
 # Run the Code
 There are three kinds of models in this project: Relational Deep Learning(RDL), GNN with Parameter Basis but without the guidance of the schema graph(We call it LightModel for simplicity), SchemaGNN.
 
-To run RDL, you can:
-```
-python gnn_node.py
-```
-for the node-level tasks and
-```
-python gnn_link.py
-```
-for the edge-level tasks.
+To run RDL, you can: ```python gnn_node.py``` for the node-level tasks and ```python gnn_link.py``` for the edge-level tasks.
 
 To run LightModel, you can:
 ```
