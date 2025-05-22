@@ -119,19 +119,19 @@ for split in ["train", "val", "test"]:
 
 def get_trainable_parameter_size(model):
     trainable_params = filter(lambda p: p.requires_grad, model.parameters())
-    try:  # 尝试获取第一个可训练参数
+    try: 
         param = next(trainable_params)
-        param_size = 4  # 默认 float32
+        param_size = 4 
         if param.dtype == torch.float16:
             param_size = 2
 
-        total_num_params = sum(p.numel() for p in trainable_params)  # 注意：这里需要重新生成迭代器
-        trainable_params = filter(lambda p: p.requires_grad, model.parameters()) # 重新生成迭代器
+        total_num_params = sum(p.numel() for p in trainable_params)  
+        trainable_params = filter(lambda p: p.requires_grad, model.parameters()) 
 
         total_size_bytes = total_num_params * param_size
         total_size_mb = total_size_bytes / (1024 ** 2)
         return total_size_mb
-    except StopIteration:  # 如果没有可训练参数
+    except StopIteration:  
         return 0.0
 
 model = Model(
@@ -249,4 +249,4 @@ test_pred = test(loader_dict["test"])
 test_metrics = task.evaluate(test_pred)
 print(f"Best test metrics: {test_metrics}")
 
-#CUDA_VISIBLE_DEVICES=3 python idgnn_link.py --dataset rel-trial --task condition-sponsor-run
+
