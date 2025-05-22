@@ -19,7 +19,4 @@ pip install relbench[full]
 ```
 # Package Usage
 
-# Contributing
-
-
 # Cite SchemaGNN
