@@ -284,6 +284,3 @@ print(f"Best Val metrics: {val_metrics}")
 test_pred = test(*eval_loaders_dict["test"])
 test_metrics = task.evaluate(test_pred)
 print(f"Best test metrics: {test_metrics}")
-
-#CUDA_VISIBLE_DEVICES=0 python gnn_link.py --dataset rel-trial --task condition-sponsor-run
-#CUDA_VISIBLE_DEVICES=0 python gnn_link.py --dataset rel-trial --task site-sponsor-run
