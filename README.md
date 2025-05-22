@@ -19,4 +19,7 @@ pip install relbench[full]
 ```
 # Package Usage
 
+## Acknowledgments
+This project is based on [relbench](https://github.com/snap-stanford/relbench). Many thanks to the authors for their excellent work.
+
 # Cite SchemaGNN
