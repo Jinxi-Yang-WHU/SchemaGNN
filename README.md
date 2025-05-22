@@ -13,10 +13,13 @@ Our project is based on the Relational Deep Learning Benchmark(RelBench), so you
 ```
 pip install relbench
 ```
+Additionally, our project requires [PyTorch](https://pytorch.org), [Pytorch Geometric](https://github.com/pyg-team/pytorch_geometric) and [Pytorch Frame](https://github.com/pyg-team/pytorch-frame). Please install these dependencies manually or do:
+```
+pip install relbench[full]
+```
 # Package Usage
 
 # Contributing
 
 
 # Cite SchemaGNN
-
