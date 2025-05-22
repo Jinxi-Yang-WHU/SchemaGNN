@@ -41,6 +41,11 @@ To run RDL, you can use the command ```python gnn_node.py``` for the node-level 
 To run LightModel, you can use the command ```python light_gnn_node.py``` for the node-level tasks and ```python light_gnn_link.py``` for the edge-level tasks.
 
 To run SchemaGNN, you can use the command ```python schema_gnn_node.py``` for the node-level tasks and ```python schema_gnn_link.py``` for the edge-level tasks.
+
+You can configure the ```--dataset``` and ```--task``` parameters to specify which dataset and task the model should be trained and evaluated on. For example, to train and test the SchemaGNN on the ```driver position``` task from the ```rel-f1``` dataset, run the following script:
+```
+python schema_gnn_node.py --dataset rel-f1 --task driver-position
+```
 ## Acknowledgments
 This project is based on [relbench](https://github.com/snap-stanford/relbench). Many thanks to the authors for their excellent work.
 
