@@ -33,7 +33,7 @@ Additionally, our project requires [PyTorch](https://pytorch.org), [Pytorch Geom
 ```
 pip install relbench[full]
 ```
-# Package Usage
+# Run the Code
 
 ## Acknowledgments
 This project is based on [relbench](https://github.com/snap-stanford/relbench). Many thanks to the authors for their excellent work.
