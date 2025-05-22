@@ -19,5 +19,5 @@
 # Contributing
 
 
-# Cite RelBench
+# Cite Schema
 
