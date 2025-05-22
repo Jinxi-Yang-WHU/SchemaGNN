@@ -4,7 +4,7 @@
 
 
 # Overview
-![Overall framework of Schema Graph-Guided Graph Neural Network](/schema-gnn.jpg)
+![Overall framework of Schema Graph-Guided Graph Neural Network](/schema-gnn.jpg "Overall framework of Schema Graph-Guided Graph Neural Network")
 
 # Design of SchemaGNN
 
