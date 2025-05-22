@@ -42,9 +42,17 @@ To run LightModel, you can use the command ```python light_gnn_node.py``` for th
 
 To run SchemaGNN, you can use the command ```python schema_gnn_node.py``` for the node-level tasks and ```python schema_gnn_link.py``` for the edge-level tasks.
 
-You can configure the ```--dataset``` and ```--task``` parameters to specify which dataset and task the model should be trained and evaluated on. For example, to train and test the SchemaGNN on the ```driver position``` task from the ```rel-f1``` dataset, run the following script:
+You can configure the ```--dataset``` and ```--task``` parameters to specify which dataset and task the model should be trained and evaluated on. For example, to train and test the SchemaGNN on the ```driver-position``` task from the ```rel-f1``` dataset, run the following script:
 ```
 python schema_gnn_node.py --dataset rel-f1 --task driver-position
+```
+You can also configure the ```--num_bases``` parameter to set the number of weight matrices used in the Parameter Basis. For example, to train and test SchemaGNN on the driver position task from the rel-f1 dataset with 6 weight matrices in the Parameter Basis, run the following script:
+```
+python schema_gnn_node.py --dataset rel-f1 --task driver-position --num_bases 6
+```
+You can configure the `--weight1`, `--weight2`, and `--weight3` parameters to adjust the linear coefficients for the reconstruction loss $\mathcal{L}_{rec}$, task-specific loss $\mathcal{L}_{tsk}$, and regularization loss $\mathcal{L}_{reg}$, respectively. For example, to train and test SchemaGNN on the driver position task from the `rel-f1` dataset using 6 weight matrices in the Parameter Basis, with the overall loss defined as `1.0*$\mathcal{L}_{rec}$ + 1.0*$\mathcal{L}_{tsk}$ + 0.3*$\mathcal{L}_{reg}$`, execute the following command:
+```
+python schema_gnn_node.py --dataset rel-f1 --task driver-position --num_bases 6 --weight1 1.0 --weight2 1.0 --weight3 0.3
 ```
 ## Acknowledgments
 This project is based on [relbench](https://github.com/snap-stanford/relbench). Many thanks to the authors for their excellent work.
