@@ -55,25 +55,6 @@ args = parser.parse_args()
 hyperparams = {
     "hyperparams": "best"
 }
-#8 97 132 2726 32749
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-f1 --task driver-position
-#CUDA_VISIBLE_DEVICES=2 python gnn_node.py --dataset rel-f1 --task driver-top3
-#CUDA_VISIBLE_DEVICES=2 python gnn_node.py --dataset rel-f1 --task driver-dnf
-#python gnn_node.py --dataset rel-f1 --task driver-dnf
-#python gnn_node.py --dataset rel-trial --task study-outcome --seed 8
-#python gnn_node.py --dataset rel-amazon --task user-churn 
-#python gnn_node.py --dataset rel-avito --task user-clicks
-#python gnn_node.py --dataset rel-hm --task user-churn
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-trial --task study-outcome 
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-trial --task study-adverse 
-#CUDA_VISIBLE_DEVICES=2 python gnn_node.py --dataset rel-avito --task user-clicks --seed 8
-#CUDA_VISIBLE_DEVICES=3 python gnn_node.py --dataset rel-trial --task site-success
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-event --task user-attendance --seed 8
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-event --task user-ignore --seed 8
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-event --task user-ignore --seed 8
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-hm --task user-churn --seed 8
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-amazon --task user-churn --seed 8
-#CUDA_VISIBLE_DEVICES=0 python gnn_node.py --dataset rel-stack --task user-engagement --seed 8
 
 model_name = "GNN"
 dataset_name = args.dataset
@@ -223,19 +204,19 @@ model = Model(
 
 def get_trainable_parameter_size(model):
     trainable_params = filter(lambda p: p.requires_grad, model.parameters())
-    try:  # 尝试获取第一个可训练参数
+    try:  
         param = next(trainable_params)
-        param_size = 4  # 默认 float32
+        param_size = 4  
         if param.dtype == torch.float16:
             param_size = 2
 
-        total_num_params = sum(p.numel() for p in trainable_params)  # 注意：这里需要重新生成迭代器
-        trainable_params = filter(lambda p: p.requires_grad, model.parameters()) # 重新生成迭代器
+        total_num_params = sum(p.numel() for p in trainable_params) 
+        trainable_params = filter(lambda p: p.requires_grad, model.parameters())
 
         total_size_bytes = total_num_params * param_size
         total_size_mb = total_size_bytes / (1024 ** 2)
         return total_size_mb
-    except StopIteration:  # 如果没有可训练参数
+    except StopIteration: 
         return 0.0
 
 print(get_trainable_parameter_size(model))
@@ -266,17 +247,3 @@ print(f"Best test metrics: {test_metrics}")
 
 logger.log.close()
 sys.stdout = sys.stdout.terminal
-
-#python gnn_node.py --dataset rel-f1 --task driver-position
-#Best test metrics: {'r2': -0.06045781452517196, 'mae': 4.417125164333142, 'rmse': 5.365578513686385}
-#Best test metrics: {'r2': -0.007677934599587211, 'mae': 4.297663814645064, 'rmse': 5.230349742880213}
-#Best test metrics: {'r2': -0.0005923878811164851, 'mae': 4.299094204735337, 'rmse': 5.211928547261949}
-#Best test metrics: {'r2': 0.02263148801838688, 'mae': 4.23385450404987, 'rmse': 5.151088689047588}
-#Best test metrics: {'r2': 0.015586933038529205, 'mae': 4.275673540935182, 'rmse': 5.1696190464097596}
-
-#Best Val metrics: {'r2': 0.2567687947789724, 'mae': 3.192961326438583, 'rmse': 3.996798534316677}
-#Best Val metrics: {'r2': 0.2728768382872182, 'mae': 3.179708676029223, 'rmse': 3.9532499949177726}
-#Best Val metrics: {'r2': 0.2682329946406081, 'mae': 3.1857370924455926, 'rmse': 3.9658538131801193}
-#Best Val metrics: {'r2': 0.26732412443753184, 'mae': 3.195672416304778, 'rmse': 3.968315886373416}
-#Best Val metrics: {'r2': 0.2563203201522871, 'mae': 3.2018055413194553, 'rmse': 3.998004210559275}
-
