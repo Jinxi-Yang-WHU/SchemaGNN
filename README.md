@@ -25,6 +25,11 @@ By intelligently integrating schema knowledge and employing an efficient paramet
 ![Overall framework of Schema Graph-Guided Graph Neural Network](/schema-gnn.jpg)
 There are three main components of SchemaGNN: **Parameter Basis**, **Extraction of the schema graph information** and **Regularization**
 * **Parameter Basis:**  We define a shared set of basis matrices. Each edge-specific weight matrix is then efficiently represented as a linear combination of these bases, significantly cutting down on trainable parameters and memory.
+* **Extraction of the schema graph information:**
+    *   Schema node features are initialized using text embeddings of their type names.
+    *   A GNN then processes the schema graph to learn powerful representations for these node types.
+    *   These learned schema embeddings (for an edge's start and end node types) are concatenated and used to calculate the linear coefficients that construct each edge-specific weight matrix from the shared `Parameter Basis`. This allows the schema structure to directly guide the formation of model parameters.
+* **Regularization:** We introduce a regularization loss that encourages dissimilarity among the basis matrices within the Parameter Basis. This ensures each basis captures distinct aspects, allowing the Parameter Basis to construct a richer variety of edge-specific weight matrices and thereby boosting overall model expressiveness.
 # Installation
 Our project is based on the Relational Deep Learning Benchmark(RelBench), so you need to first install RelBench using ```pip```
 ```
