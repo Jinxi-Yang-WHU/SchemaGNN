@@ -54,6 +54,8 @@ You can configure the `--weight1`, `--weight2`, and `--weight3` parameters to ad
 ```
 python schema_gnn_node.py --dataset rel-f1 --task driver-position --num_bases 6 --weight1 1.0 --weight2 1.0 --weight3 0.3
 ```
+$L_1$
+
 ## Acknowledgments
 This project is based on [relbench](https://github.com/snap-stanford/relbench). Many thanks to the authors for their excellent work.
 
